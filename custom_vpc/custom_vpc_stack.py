@@ -16,7 +16,8 @@ class CustomVpcStack(core.Stack):
                     max_azs=2,
                     nat_gateways=0,
                     subnet_configuration=[
-                       ec2.SubnetConfiguration(name="public", cidr_mask=24, subnet_type=ec2.SubnetType.PUBLIC),                                                                             # ec2.SubnetConfiguration(name="private", cidr_mask=24, subnet_type=ec2.SubnetType.PRIVATE)                                                                          ec2.SubnetConfiguration(name="private", cidr_mask=24, subnet_type=ec2.SubnetType.ISOLATED)
+                       ec2.SubnetConfiguration(name="public", cidr_mask=24, subnet_type=ec2.SubnetType.PUBLIC), 
+                       ec2.SubnetConfiguration(name="isolated",cidr_mask=24,subnet_type=ec2.SubnetType.ISOLATED),                                                                            # ec2.SubnetConfiguration(name="private", cidr_mask=24, subnet_type=ec2.SubnetType.PRIVATE)                                                                          ec2.SubnetConfiguration(name="private", cidr_mask=24, subnet_type=ec2.SubnetType.ISOLATED)
                                                     ]
                                                 )
             # Tag all VPC Resources
